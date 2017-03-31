@@ -1,17 +1,20 @@
+/**
+ * Created by Geeks on 3/31/2017.
+ */
 import React, {Component} from 'react';
-import ProjectItem from './ProjectItem';
-class Project extends Component {
+import TodoItem from './TodoItem';
+class Todo extends Component {
     deleteProject(id) {
         this.props.onDelete(id);
     }
 
     render() {
         let projectItem;
-        if (this.props.projects) {
-            projectItem = this.props.projects.map(project => {
+        if (this.props.todos) {
+            projectItem = this.props.todos.map(project => {
                 //console.log(project);
                 return (
-                    <ProjectItem onDelete={this.deleteProject.bind(this)} key={project.title} projects={project}/>
+                    <TodoItem  key={project.title} projects={project}/>
                 );
 
             });
@@ -27,9 +30,5 @@ class Project extends Component {
 
 }
 //add validation
-Project.proTypes={
-    projects:React.PropTypes.array,
-    onDelete:React.PropTypes.func
-}
 
-export default Project;
+export default Todo;
